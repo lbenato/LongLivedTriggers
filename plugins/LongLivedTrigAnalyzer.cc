@@ -303,6 +303,15 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
               TString TrigPath =trigName.triggerName(i_Trig);
 
 	      if ( TrigPath.Contains("HLT_") ) std::cout << TrigPath << std::endl;
+
+	      //EXO-16-003: new physics with multiple displaced jets
+	      //HLT_HT500_DisplacedDijet40_Inclusive_v, HLT_HT400_DisplacedDijet40_Inclusive_v, HLT_HT350_DisplacedDijet40_DisplacedTrack_v, HLT_HT250_DisplacedDijet40_DisplacedTrack_v
+	      //EXO-16-041: new physics with displaced jets and met
+	      //HLT_IsoMu20_v, HLT_IsoTkMu20_v, HLT_PFHT350_PFMET100_JetIdCleaned_v
+
+	      //HIG searches
+
+
               //if ( TrigPath.Contains("HLT_PFMET110_PFMHT110_IDTight_v") ) trig_bit_pfmet110_pfmht110 = true;
               //if ( TrigPath.Contains("HLT_PFMET120_PFMHT120_IDTight_v") ) trig_bit_pfmet120_pfmht120 = true;
               //if ( TrigPath.Contains("HLT_PFMET120_PFMHT120_IDTight_PFHT60_v") ) trig_bit_pfmet120_pfmht120_PFHT60 = true;
@@ -367,6 +376,7 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     edm::Handle<bool> filterBadPFMuon; 
     iEvent.getByToken(badPFMuonFilterToken, filterBadPFMuon);
     flag_BadPFMuon = *filterBadPFMuon;
+    */
 
     //Event info
     isMC = !iEvent.isRealData();
@@ -374,9 +384,11 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     LumiNumber = iEvent.luminosityBlock();
     RunNumber = iEvent.id().run();
 
+    std:cout<< EventNumber << std::endl;
+
     //Initialize met no mu
     float met_pt_nomu_x_L(0.), met_pt_nomu_y_L(0.), met_pt_nomu_x_T(0.), met_pt_nomu_y_T(0.);
-    */
+    
 
     //Vertices
     edm::Handle<reco::VertexCollection> VertexColl;

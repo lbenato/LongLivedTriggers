@@ -72,8 +72,9 @@ print 'GlobalTag loaded: ', GT
 # JSON filter
 import FWCore.PythonUtilities.LumiList as LumiList
 jsonName = "Cert_294927-305364_13TeV_PromptReco_Collisions17_JSON"#"Cert_294927-301567_13TeV_PromptReco_Collisions17_JSON" #golden json
-process.source.lumisToProcess = LumiList.LumiList(filename = 'data/JSON/'+jsonName+'.txt').getVLuminosityBlockRange()
-print "JSON file loaded: ", jsonName
+if isData:
+    process.source.lumisToProcess = LumiList.LumiList(filename = 'data/JSON/'+jsonName+'.txt').getVLuminosityBlockRange()
+    print "JSON file loaded: ", jsonName
 
 # MET filters
 process.load('RecoMET.METFilters.BadPFMuonFilter_cfi')
