@@ -302,40 +302,41 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
             if (trigResults.product()->accept(i_Trig)) {
               TString TrigPath =trigName.triggerName(i_Trig);
 
-              if ( TrigPath.Contains("HLT_PFMET110_PFMHT110_IDTight_v") ) trig_bit_pfmet110_pfmht110 = true;
-              if ( TrigPath.Contains("HLT_PFMET120_PFMHT120_IDTight_v") ) trig_bit_pfmet120_pfmht120 = true;
-              if ( TrigPath.Contains("HLT_PFMET120_PFMHT120_IDTight_PFHT60_v") ) trig_bit_pfmet120_pfmht120_PFHT60 = true;
-              if ( TrigPath.Contains("HLT_PFMET130_PFMHT130_IDTight_v") ) trig_bit_pfmet130_pfmht130 = true;
-              if ( TrigPath.Contains("HLT_PFMET140_PFMHT140_IDTight_v") ) trig_bit_pfmet140_pfmht140 = true;
+	      if ( TrigPath.Contains("HLT_") ) std::cout << TrigPath << std::endl;
+              //if ( TrigPath.Contains("HLT_PFMET110_PFMHT110_IDTight_v") ) trig_bit_pfmet110_pfmht110 = true;
+              //if ( TrigPath.Contains("HLT_PFMET120_PFMHT120_IDTight_v") ) trig_bit_pfmet120_pfmht120 = true;
+              //if ( TrigPath.Contains("HLT_PFMET120_PFMHT120_IDTight_PFHT60_v") ) trig_bit_pfmet120_pfmht120_PFHT60 = true;
+              //if ( TrigPath.Contains("HLT_PFMET130_PFMHT130_IDTight_v") ) trig_bit_pfmet130_pfmht130 = true;
+              //if ( TrigPath.Contains("HLT_PFMET140_PFMHT140_IDTight_v") ) trig_bit_pfmet140_pfmht140 = true;
 
-              if ( TrigPath.Contains("HLT_PFMETTypeOne110_PFMHT110_IDTight_v") ) trig_bit_pfmetTypeOne110_pfmht110 = true;
-              if ( TrigPath.Contains("HLT_PFMETTypeOne120_PFMHT120_IDTight_v") ) trig_bit_pfmetTypeOne120_pfmht120 = true;
-              if ( TrigPath.Contains("HLT_PFMETTypeOne120_PFMHT120_IDTight_PFHT60_v") ) trig_bit_pfmetTypeOne120_pfmht120_PFHT60 = true;
-              if ( TrigPath.Contains("HLT_PFMETTypeOne130_PFMHT130_IDTight_v") ) trig_bit_pfmetTypeOne130_pfmht130 = true;
-              if ( TrigPath.Contains("HLT_PFMETTypeOne140_PFMHT140_IDTight_v") ) trig_bit_pfmetTypeOne140_pfmht140 = true;
+              //if ( TrigPath.Contains("HLT_PFMETTypeOne110_PFMHT110_IDTight_v") ) trig_bit_pfmetTypeOne110_pfmht110 = true;
+              //if ( TrigPath.Contains("HLT_PFMETTypeOne120_PFMHT120_IDTight_v") ) trig_bit_pfmetTypeOne120_pfmht120 = true;
+              //if ( TrigPath.Contains("HLT_PFMETTypeOne120_PFMHT120_IDTight_PFHT60_v") ) trig_bit_pfmetTypeOne120_pfmht120_PFHT60 = true;
+              //if ( TrigPath.Contains("HLT_PFMETTypeOne130_PFMHT130_IDTight_v") ) trig_bit_pfmetTypeOne130_pfmht130 = true;
+              //if ( TrigPath.Contains("HLT_PFMETTypeOne140_PFMHT140_IDTight_v") ) trig_bit_pfmetTypeOne140_pfmht140 = true;
 
-              if ( TrigPath.Contains("HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_v") ) {
-		  trig_bit_pfmetnomu110_pfmhtnomu110 = true;
-		  std::cout << TrigPath << std::endl;
-	      }
-              if ( TrigPath.Contains("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_v") ) {
-  		  trig_bit_pfmetnomu120_pfmhtnomu120 = true;
-		  std::cout << TrigPath << std::endl;
-	      }
-              if ( TrigPath.Contains("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60_v") ) trig_bit_pfmetnomu120_pfmhtnomu120_PFHT60 = true;
-              if ( TrigPath.Contains("HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_v") ) trig_bit_pfmetnomu130_pfmhtnomu130 = true;
-              if ( TrigPath.Contains("HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_v") ) trig_bit_pfmetnomu140_pfmhtnomu140 = true;
+              //if ( TrigPath.Contains("HLT_PFMETNoMu110_PFMHTNoMu110_IDTight_v") ) {
+	      //  trig_bit_pfmetnomu110_pfmhtnomu110 = true;
+	      //  std::cout << TrigPath << std::endl;
+	      //}
+              //if ( TrigPath.Contains("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_v") ) {
+	      //  trig_bit_pfmetnomu120_pfmhtnomu120 = true;
+	      //  std::cout << TrigPath << std::endl;
+	      //}
+              //if ( TrigPath.Contains("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60_v") ) trig_bit_pfmetnomu120_pfmhtnomu120_PFHT60 = true;
+              //if ( TrigPath.Contains("HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_v") ) trig_bit_pfmetnomu130_pfmhtnomu130 = true;
+              //if ( TrigPath.Contains("HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_v") ) trig_bit_pfmetnomu140_pfmhtnomu140 = true;
 
-              if ( TrigPath.Contains("HLT_Ele27_WPTight_Gsf_v") ) trig_bit_ele27_wptight_gsf = true;
-              if ( TrigPath.Contains("HLT_IsoMu24_v") ) {
-		  trig_bit_isomu24 = true;
-		  std::cout << TrigPath << std::endl;
-	      }
+              //if ( TrigPath.Contains("HLT_Ele27_WPTight_Gsf_v") ) trig_bit_ele27_wptight_gsf = true;
+              //if ( TrigPath.Contains("HLT_IsoMu24_v") ) {
+	      //  trig_bit_isomu24 = true;
+	      //  std::cout << TrigPath << std::endl;
+	      //}
            }
         }
     }
 
-
+    /*
     //MET filters
     edm::Handle<edm::TriggerResults> filterResults; 
     iEvent.getByToken(filterResultsToken, filterResults);
@@ -375,6 +376,7 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
 
     //Initialize met no mu
     float met_pt_nomu_x_L(0.), met_pt_nomu_y_L(0.), met_pt_nomu_x_T(0.), met_pt_nomu_y_T(0.);
+    */
 
     //Vertices
     edm::Handle<reco::VertexCollection> VertexColl;
@@ -387,6 +389,7 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     }
 
 
+    /*
     //Loop on MET
     edm::Handle<pat::METCollection> MetColl;
     iEvent.getByToken( metToken, MetColl);
@@ -485,7 +488,7 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     min_met_mht_nomu_L = std::min(met_pt_nomu_L,m_ht_nomu_L);
     min_met_mht_nomu_T = std::min(met_pt_nomu_T,m_ht_nomu_T);
 
-
+    
     //Loop on electrons ---> fix, missing Electron IDs
     
     edm::InputTag convLabel = edm::InputTag("reducedEgamma:reducedConversions");
@@ -502,7 +505,7 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     //std::vector<pat::Electron> ElectronVect;
     for(std::vector<pat::Electron>::const_iterator it=electrons->begin(); it!=electrons->end(); it++) {
         pat::Electron e=*it;
-	/*
+	///*
 	GsfElectron::PflowIsolationVariables pfIso = e.pfIsolationVariables();
 	bool isEB = e.isEB() ? true : false;
 	float dEtaIn = e.deltaEtaSuperClusterTrackAtVtx();
@@ -536,13 +539,15 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
 	if ( isLoose ) {
   	    std::cout << "LOOSE ele" << std::endl;
 	}
-        */
+    // */     /*
         if ( e.pt() < 30 ) continue;
         if ( fabs( e.eta() ) > 2.5 ) continue;
 	//std::cout << "Electron pt: " << e.pt() << std::endl;
 	electron1_pt = e.pt();
 	//ElectronVect.push_back(e);
     } // loop over electrons
+
+   */
     
     tree -> Fill();
 

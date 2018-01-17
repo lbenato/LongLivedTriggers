@@ -19,7 +19,8 @@ process.source = cms.Source("PoolSource",
         #'/store/data/Run2017A/SingleMuon/MINIAOD/PromptReco-v2/000/296/168/00000/084C505D-784C-E711-8140-02163E019DA4.root'
         #'/store/data/Run2017B/SingleMuon/MINIAOD/PromptReco-v2/000/298/678/00000/B48DBFCD-A466-E711-A86B-02163E01A456.root'
         #'/store/data/Run2017C/SingleMuon/MINIAOD/PromptReco-v2/000/300/087/00000/009C8147-0D77-E711-A1EA-02163E0145A7.root',
-        '/store/data/Run2017D/SingleMuon/MINIAOD/PromptReco-v1/000/302/031/00000/2411F4EE-2D8F-E711-B514-02163E0134D6.root',
+        #'/store/data/Run2017D/SingleMuon/MINIAOD/PromptReco-v1/000/302/031/00000/2411F4EE-2D8F-E711-B514-02163E0134D6.root',
+        '/store/mc/RunIISummer16MiniAODv2/WplusH_HToSSTobbbb_WToLNu_MH-125_MS-55_ctauS-10_TuneCUETP8M1_13TeV-powheg-pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/50000/B2165289-B8CE-E611-B56B-02163E019C35.root'
     )
 )
 
@@ -58,7 +59,8 @@ if isData:
     if isPromptReco: GT = "92X_dataRun2_Prompt_v4"
     print "data 2017, PromptReco"
 else:
-    GT = "90X_upgrade2017_realistic_v20"
+    GT = "80X_mcRun2_asymptotic_2016_TrancheIV_v8"#"90X_upgrade2017_realistic_v20"
+    print "Moriond17 MC campaign global tag"
 
 process.GlobalTag = GlobalTag(process.GlobalTag, GT)
 print 'GlobalTag loaded: ', GT
