@@ -114,6 +114,102 @@ class LongLivedTrigAnalyzer : public edm::one::EDAnalyzer<edm::one::SharedResour
     bool   trig_bit_pfmetnomu140_pfmhtnomu140;
     bool   trig_bit_ele27_wptight_gsf;
     bool   trig_bit_isomu24;
+  //Single Mu
+  bool   trig_bit_IsoMu24_v;
+  bool   trig_bit_IsoTkMu24_v;
+  bool   trig_bit_Mu50_v;
+  bool   trig_bit_Mu55_v;
+  //Single Ele
+  bool   trig_bit_Ele27_WPTight_Gsf_v;
+  //Lepton + jets/HT
+  bool   trig_bit_Ele27_WPLoose_Gsf_WHbbBoost_v;
+  bool   trig_bit_Ele27_eta2p1_WPLoose_Gsf_HT200_v;
+  bool   trig_bit_Mu3_PFJet40_v;
+  bool   trig_bit_Ele8_CaloIdM_TrackIdM_PFJet30_v;
+  bool   trig_bit_Ele17_CaloIdM_TrackIdM_PFJet30_v;
+  bool   trig_bit_Ele23_CaloIdM_TrackIdM_PFJet30_v;
+  bool   trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v;
+  bool   trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v;
+  //jet + met
+  bool   trig_bit_PFHT350_PFMET100_JetIdCleaned_v;
+  //H to bb
+  //bool   trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v;
+  //    bool   trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq460//prescaled to 0
+  bool   trig_bit_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_v;
+  //    bool   trig_bit_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq200_v//prescaled
+  bool   trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v;
+  bool   trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v;
+  bool   trig_bit_QuadPFJet45_TripleBtagCSV_p087_v;
+  bool   trig_bit_QuadPFJet45_DoubleBtagCSV_p087_v; //prescaled
+  //    bool   trig_bit_QuadPFJet_DoubleBTagCSV_p016_p11_VBF_Mqq200//?
+  //    bool   trig_bit_QuadPFJet_DoubleBTagCSV_p016_p11_VBF_Mqq240//?
+  bool   trig_bit_QuadPFJet_VBF_v; //super prescaled
+  bool   trig_bit_L1_TripleJet_VBF_v; //super prescaled
+  //pfjets
+  //    bool   trig_bit_PFJet40//prescaled
+  //    bool   trig_bit_PFJet60//prescaled
+  //    bool   trig_bit_PFJet80//prescaled
+  //    bool   trig_bit_PFJet200//prescaled
+  bool   trig_bit_PFJet450_v;
+  bool   trig_bit_PFJet500_v;
+  bool   trig_bit_DiPFJetAve40_v;//prescaled
+  bool   trig_bit_DiPFJetAve60_v;//prescaled
+  bool   trig_bit_DiPFJetAve80_v;//prescaled
+  //Displaced things:
+  bool   trig_bit_VBF_DisplacedJet40_DisplacedTrack_v;
+  bool   trig_bit_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_v;
+  bool   trig_bit_VBF_DisplacedJet40_TightID_DisplacedTrack_v;
+  bool   trig_bit_VBF_DisplacedJet40_Hadronic_v; //prescaled to 0
+  bool   trig_bit_VBF_DisplacedJet40_Hadronic_2PromptTrack_v; //prescaled to 0
+  bool   trig_bit_VBF_DisplacedJet40_TightID_Hadronic_v; //prescaled to 0
+  bool   trig_bit_VBF_DisplacedJet40_VTightID_Hadronic_v;
+  bool   trig_bit_VBF_DisplacedJet40_VVTightID_Hadronic_v;
+  bool   trig_bit_VBF_DisplacedJet40_VTightID_DisplacedTrack_v;
+  bool   trig_bit_VBF_DisplacedJet40_VVTightID_DisplacedTrack_v;
+  bool   trig_bit_HT650_DisplacedDijet80_Inclusive_v;
+  bool   trig_bit_HT750_DisplacedDijet80_Inclusive_v;
+  bool   trig_bit_HT350_DisplacedDijet40_DisplacedTrack_v;
+  bool   trig_bit_HT250_DisplacedDijet40_DisplacedTrack_v; //prescaled
+  bool   trig_bit_HT350_DisplacedDijet80_Tight_DisplacedTrack_v;
+  //Mu + jets displaced
+  bool   trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_v;
+  bool   trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v;
+  bool   trig_bit_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v;
+  bool   trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_v;
+  bool   trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v;
+  bool   trig_bit_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_v;
+  bool   trig_bit_Mu28NoFiltersNoVtx_CentralCaloJet40_v;
+  //HT and various jets
+  //    bool   trig_bit_HT200_v//hardly prescaled
+  //    bool   trig_bit_HT275_v//prescaled
+  //    bool   trig_bit_HT325_v//prescaled
+  //    bool   trig_bit_HT425_v//prescaled
+  //    bool   trig_bit_HT575_v//prescaled
+  bool   trig_bit_HT650_v;
+  bool   trig_bit_PFHT800_v; //first unprescaled
+  bool   trig_bit_PFHT550_4JetPt50_v;
+  bool   trig_bit_PFHT650_4JetPt50_v;
+  bool   trig_bit_PFHT750_4JetPt50_v;
+  bool   trig_bit_PFHT800_4JetPt50_v;
+  bool   trig_bit_PFHT850_4JetPt50_v;
+  bool   trig_bit_PFJet15_NoCaloMatched_v;
+  bool   trig_bit_PFJet25_NoCaloMatched_v;
+  bool   trig_bit_DiPFJet15_NoCaloMatched_v;
+  bool   trig_bit_DiPFJet25_NoCaloMatched_v;
+  bool   trig_bit_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_v;
+  bool   trig_bit_DiCentralPFJet430_v;
+  bool   trig_bit_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_v;
+  bool   trig_bit_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_v;
+  bool   trig_bit_PFHT650_WideJetMJJ900DEtaJJ1p5_v;
+  bool   trig_bit_PFHT650_WideJetMJJ950DEtaJJ1p5_v;
+  //Calo jets
+  bool   trig_bit_CaloJet260_v; 
+  bool   trig_bit_CaloJet500_NoJetID_v; 
+  bool   trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v; 
+  bool   trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v; 
+  bool   trig_bit_HT250_CaloMET70_v; 
+
+
     //MET filters
     bool trig_bit_flag_HBHENoiseFilter;
     bool trig_bit_flag_HBHENoiseIsoFilter;
@@ -219,6 +315,84 @@ LongLivedTrigAnalyzer::LongLivedTrigAnalyzer(const edm::ParameterSet& iConfig)
     tree -> Branch("HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60_v", &trig_bit_pfmetnomu120_pfmhtnomu120_PFHT60, "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60_v/B");
     tree -> Branch("HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_v", &trig_bit_pfmetnomu130_pfmhtnomu130, "HLT_PFMETNoMu130_PFMHTNoMu130_IDTight_v/B");
     tree -> Branch("HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_v", &trig_bit_pfmetnomu140_pfmhtnomu140, "HLT_PFMETNoMu140_PFMHTNoMu140_IDTight_v/B");
+  //Single Mu
+    tree -> Branch("HLT_IsoMu24_v", &trig_bit_IsoMu24_v, "HLT_IsoMu24_v/B");
+    tree -> Branch("HLT_IsoTkMu24_v", &trig_bit_IsoTkMu24_v, "HLT_IsoTkMu24_v/B");
+    tree -> Branch("HLT_Mu50_v", &trig_bit_Mu50_v, "HLT_Mu50_v/B");
+    tree -> Branch("HLT_Mu55_v", &trig_bit_Mu55_v, "HLT_Mu55_v/B");
+  //Single Ele
+    tree -> Branch("HLT_Ele27_WPTight_Gsf_v", &trig_bit_Ele27_WPTight_Gsf_v, "HLT_Ele27_WPTight_Gsf_v/B");
+  //Lepton + jets/HT
+    tree -> Branch("HLT_Ele27_WPLoose_Gsf_WHbbBoost_v", &trig_bit_Ele27_WPLoose_Gsf_WHbbBoost_v, "HLT_Ele27_WPLoose_Gsf_WHbbBoost_v/B");
+    tree -> Branch("HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v", &trig_bit_Ele27_eta2p1_WPLoose_Gsf_HT200_v, "HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v/B");
+    tree -> Branch("HLT_Mu3_PFJet40_v", &trig_bit_Mu3_PFJet40_v, "HLT_Mu3_PFJet40_v/B");
+    tree -> Branch("HLT_Ele8_CaloIdM_TrackIdM_PFJet30_v", &trig_bit_Ele8_CaloIdM_TrackIdM_PFJet30_v, "HLT_Ele8_CaloIdM_TrackIdM_PFJet30_v/B");
+    tree -> Branch("HLT_Ele17_CaloIdM_TrackIdM_PFJet30_v", &trig_bit_Ele17_CaloIdM_TrackIdM_PFJet30_v, "HLT_Ele17_CaloIdM_TrackIdM_PFJet30_v/B");
+    tree -> Branch("HLT_Ele23_CaloIdM_TrackIdM_PFJet30_v", &trig_bit_Ele23_CaloIdM_TrackIdM_PFJet30_v, "HLT_Ele23_CaloIdM_TrackIdM_PFJet30_v/B");
+    tree -> Branch("HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v", &trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v, "HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v/B");
+    tree -> Branch("HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v", &trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v, "HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v/B");
+  //jet + met
+    tree -> Branch("HLT_PFHT350_PFMET100_JetIdCleaned_v", &trig_bit_PFHT350_PFMET100_JetIdCleaned_v, "HLT_PFHT350_PFMET100_JetIdCleaned_v/B");
+  //H to bb
+    tree -> Branch("HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v", &trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v, "HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v/B");
+    tree -> Branch("HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_v", &trig_bit_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_v, "HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_v/B");
+    tree -> Branch("HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v", &trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v, "HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v/B");
+    tree -> Branch("HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v", &trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v, "HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v/B");
+    tree -> Branch("HLT_QuadPFJet45_TripleBtagCSV_p087_v", &trig_bit_QuadPFJet45_TripleBtagCSV_p087_v, "HLT_QuadPFJet45_TripleBtagCSV_p087_v/B");
+    tree -> Branch("HLT_QuadPFJet45_DoubleBtagCSV_p087_v", &trig_bit_QuadPFJet45_DoubleBtagCSV_p087_v, "HLT_QuadPFJet45_DoubleBtagCSV_p087_v/B");
+    tree -> Branch("HLT_QuadPFJet_VBF_v", &trig_bit_QuadPFJet_VBF_v, "HLT_QuadPFJet_VBF_v/B");//super prescaled
+    tree -> Branch("HLT_L1_TripleJet_VBF_v", &trig_bit_L1_TripleJet_VBF_v, "HLT_L1_TripleJet_VBF_v/B");//super prescaled
+  //pfjets
+    tree -> Branch("HLT_PFJet450_v", &trig_bit_PFJet450_v, "HLT_PFJet450_v/B");
+    tree -> Branch("HLT_PFJet500_v", &trig_bit_PFJet500_v, "HLT_PFJet500_v/B");
+    tree -> Branch("HLT_DiPFJetAve40_v", &trig_bit_DiPFJetAve40_v, "HLT_DiPFJetAve40_v/B");//prescaled
+    tree -> Branch("HLT_DiPFJetAve60_v", &trig_bit_DiPFJetAve60_v, "HLT_DiPFJetAve60_v/B");//prescaled
+    tree -> Branch("HLT_DiPFJetAve80_v", &trig_bit_DiPFJetAve80_v, "HLT_DiPFJetAve80_v/B");//prescaled
+  //Displaced things:
+    tree -> Branch("HLT_VBF_DisplacedJet40_DisplacedTrack_v", &trig_bit_VBF_DisplacedJet40_DisplacedTrack_v, "HLT_VBF_DisplacedJet40_DisplacedTrack_v/B");
+    tree -> Branch("HLT_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_v", &trig_bit_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_v, "HLT_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_v/B");
+    tree -> Branch("HLT_VBF_DisplacedJet40_TightID_DisplacedTrack_v", &trig_bit_VBF_DisplacedJet40_TightID_DisplacedTrack_v, "HLT_VBF_DisplacedJet40_TightID_DisplacedTrack_v/B");
+    tree -> Branch("HLT_VBF_DisplacedJet40_VTightID_Hadronic_v", &trig_bit_VBF_DisplacedJet40_VTightID_Hadronic_v, "HLT_VBF_DisplacedJet40_VTightID_Hadronic_v/B");
+    tree -> Branch("HLT_VBF_DisplacedJet40_VVTightID_Hadronic_v", &trig_bit_VBF_DisplacedJet40_VVTightID_Hadronic_v, "HLT_VBF_DisplacedJet40_VVTightID_Hadronic_v/B");
+    tree -> Branch("HLT_VBF_DisplacedJet40_VTightID_DisplacedTrack_v", &trig_bit_VBF_DisplacedJet40_VTightID_DisplacedTrack_v, "HLT_VBF_DisplacedJet40_VTightID_DisplacedTrack_v/B");
+    tree -> Branch("HLT_VBF_DisplacedJet40_VVTightID_DisplacedTrack_v", &trig_bit_VBF_DisplacedJet40_VVTightID_DisplacedTrack_v, "HLT_VBF_DisplacedJet40_VVTightID_DisplacedTrack_v/B");
+    tree -> Branch("HLT_HT650_DisplacedDijet80_Inclusive_v", &trig_bit_HT650_DisplacedDijet80_Inclusive_v, "HLT_HT650_DisplacedDijet80_Inclusive_v/B");
+    tree -> Branch("HLT_HT750_DisplacedDijet80_Inclusive_v", &trig_bit_HT750_DisplacedDijet80_Inclusive_v, "HLT_HT750_DisplacedDijet80_Inclusive_v/B");
+    tree -> Branch("HLT_HT350_DisplacedDijet40_DisplacedTrack_v", &trig_bit_HT350_DisplacedDijet40_DisplacedTrack_v, "HLT_HT350_DisplacedDijet40_DisplacedTrack_v/B");
+    tree -> Branch("HLT_HT250_DisplacedDijet40_DisplacedTrack_v", &trig_bit_HT250_DisplacedDijet40_DisplacedTrack_v, "HLT_HT250_DisplacedDijet40_DisplacedTrack_v/B");//prescaled;
+    tree -> Branch("HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack_v", &trig_bit_HT350_DisplacedDijet80_Tight_DisplacedTrack_v, "HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack_v/B");
+  //Mu + jets displaced
+    tree -> Branch("HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_v", &trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_v, "HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_v/B");
+    tree -> Branch("HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v", &trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v, "HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v/B");
+    tree -> Branch("HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v", &trig_bit_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v, "HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v/B");
+    tree -> Branch("HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_v", &trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_v, "HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_v/B");
+    tree -> Branch("HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v", &trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v, "HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v/B");
+    tree -> Branch("HLT_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_v", &trig_bit_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_v, "HLT_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_v/B");
+    tree -> Branch("HLT_Mu28NoFiltersNoVtx_CentralCaloJet40_v", &trig_bit_Mu28NoFiltersNoVtx_CentralCaloJet40_v, "HLT_Mu28NoFiltersNoVtx_CentralCaloJet40_v/B");
+    tree -> Branch("HLT_HT650_v", &trig_bit_HT650_v, "HLT_HT650_v/B");
+    tree -> Branch("HLT_PFHT800_v", &trig_bit_PFHT800_v, "HLT_PFHT800_v/B");
+    tree -> Branch("HLT_PFHT550_4JetPt50_v", &trig_bit_PFHT550_4JetPt50_v, "HLT_PFHT550_4JetPt50_v/B");
+    tree -> Branch("HLT_PFHT650_4JetPt50_v", &trig_bit_PFHT650_4JetPt50_v, "HLT_PFHT650_4JetPt50_v/B");
+    tree -> Branch("HLT_PFHT750_4JetPt50_v", &trig_bit_PFHT750_4JetPt50_v, "HLT_PFHT750_4JetPt50_v/B");
+    tree -> Branch("HLT_PFHT800_4JetPt50_v", &trig_bit_PFHT800_4JetPt50_v, "HLT_PFHT800_4JetPt50_v/B");
+    tree -> Branch("HLT_PFHT850_4JetPt50_v", &trig_bit_PFHT850_4JetPt50_v, "HLT_PFHT850_4JetPt50_v/B");
+    tree -> Branch("HLT_PFJet15_NoCaloMatched_v", &trig_bit_PFJet15_NoCaloMatched_v, "HLT_PFJet15_NoCaloMatched_v/B");
+    tree -> Branch("HLT_PFJet25_NoCaloMatched_v", &trig_bit_PFJet25_NoCaloMatched_v, "HLT_PFJet25_NoCaloMatched_v/B");
+    tree -> Branch("HLT_DiPFJet15_NoCaloMatched_v", &trig_bit_DiPFJet15_NoCaloMatched_v, "HLT_DiPFJet15_NoCaloMatched_v/B");
+    tree -> Branch("HLT_DiPFJet25_NoCaloMatched_v", &trig_bit_DiPFJet25_NoCaloMatched_v, "HLT_DiPFJet25_NoCaloMatched_v/B");
+    tree -> Branch("HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_v", &trig_bit_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_v, "HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_v/B");
+    tree -> Branch("HLT_DiCentralPFJet430_v", &trig_bit_DiCentralPFJet430_v, "HLT_DiCentralPFJet430_v/B");
+    tree -> Branch("HLT_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_v", &trig_bit_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_v, "HLT_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_v/B");
+    tree -> Branch("HLT_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_v", &trig_bit_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_v, "HLT_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_v/B");
+    tree -> Branch("HLT_PFHT650_WideJetMJJ900DEtaJJ1p5_v", &trig_bit_PFHT650_WideJetMJJ900DEtaJJ1p5_v, "HLT_PFHT650_WideJetMJJ900DEtaJJ1p5_v/B");
+    tree -> Branch("HLT_PFHT650_WideJetMJJ950DEtaJJ1p5_v", &trig_bit_PFHT650_WideJetMJJ950DEtaJJ1p5_v, "HLT_PFHT650_WideJetMJJ950DEtaJJ1p5_v/B");
+    tree -> Branch("HLT_CaloJet260_v", &trig_bit_CaloJet260_v, "HLT_CaloJet260_v/B"); 
+    tree -> Branch("HLT_CaloJet500_NoJetID_v", &trig_bit_CaloJet500_NoJetID_v, "HLT_CaloJet500_NoJetID_v/B");
+    tree -> Branch("HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v", &trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v, "HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v/B"); 
+    tree -> Branch("HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v", &trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v, "HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v/B"); 
+    tree -> Branch("HLT_HT250_CaloMET70_v", &trig_bit_HT250_CaloMET70_v, "HLT_HT250_CaloMET70_v/B");
+
+
     tree -> Branch("HLT_Ele27_WPTight_Gsf_v", &trig_bit_ele27_wptight_gsf, "HLT_Ele27_WPTight_Gsf_v/B");
     tree -> Branch("HLT_IsoMu24_v", &trig_bit_isomu24, "HLT_IsoMu24_v/B");
     tree -> Branch("Flag_HBHENoiseFilter", &trig_bit_flag_HBHENoiseFilter, "Flag_HBHENoiseFilter/B");
@@ -282,6 +456,100 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     trig_bit_flag_eeBadScFilter = false;
     trig_bit_flag_globalSuperTightHalo2016Filter = false;
 
+    trig_bit_IsoMu24_v = false;
+    trig_bit_IsoTkMu24_v = false;
+    trig_bit_Mu50_v = false;
+    trig_bit_Mu55_v = false;
+    //Single Ele
+    trig_bit_Ele27_WPTight_Gsf_v = false;
+    //Lepton + jets/HT
+    trig_bit_Ele27_WPLoose_Gsf_WHbbBoost_v = false;
+    trig_bit_Ele27_eta2p1_WPLoose_Gsf_HT200_v = false;
+    trig_bit_Mu3_PFJet40_v = false;
+    trig_bit_Ele8_CaloIdM_TrackIdM_PFJet30_v = false;
+    trig_bit_Ele17_CaloIdM_TrackIdM_PFJet30_v = false;
+    trig_bit_Ele23_CaloIdM_TrackIdM_PFJet30_v = false;
+    trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v = false;
+    trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v = false;
+    //jet + met
+    trig_bit_PFHT350_PFMET100_JetIdCleaned_v = false;
+    //H to bb
+    trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v = false;
+    //  trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq460//prescaled to 0
+    trig_bit_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_v = false;
+    //  trig_bit_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq200_v//prescaled
+    trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v = false;
+    trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v = false;
+    trig_bit_QuadPFJet45_TripleBtagCSV_p087_v = false;
+    trig_bit_QuadPFJet45_DoubleBtagCSV_p087_v = false; //prescaled
+    //  trig_bit_QuadPFJet_DoubleBTagCSV_p016_p11_VBF_Mqq200//?
+    //  trig_bit_QuadPFJet_DoubleBTagCSV_p016_p11_VBF_Mqq240//?
+    trig_bit_QuadPFJet_VBF_v = false; //super prescaled
+    trig_bit_L1_TripleJet_VBF_v = false; //super prescaled
+    //pfjets
+    //  trig_bit_PFJet40//prescaled
+    //  trig_bit_PFJet60//prescaled
+    //  trig_bit_PFJet80//prescaled
+    //  trig_bit_PFJet200//prescaled
+    trig_bit_PFJet450_v = false;
+    trig_bit_PFJet500_v = false;
+    trig_bit_DiPFJetAve40_v = false;//prescaled
+    trig_bit_DiPFJetAve60_v = false;//prescaled
+    trig_bit_DiPFJetAve80_v = false;//prescaled
+    //Displaced things:
+    trig_bit_VBF_DisplacedJet40_DisplacedTrack_v = false;
+    trig_bit_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_v = false;
+    trig_bit_VBF_DisplacedJet40_TightID_DisplacedTrack_v = false;
+    trig_bit_VBF_DisplacedJet40_Hadronic_v = false; //prescaled to 0
+    trig_bit_VBF_DisplacedJet40_Hadronic_2PromptTrack_v = false; //prescaled to 0
+    trig_bit_VBF_DisplacedJet40_TightID_Hadronic_v = false; //prescaled to 0
+    trig_bit_VBF_DisplacedJet40_VTightID_Hadronic_v = false;
+    trig_bit_VBF_DisplacedJet40_VVTightID_Hadronic_v = false;
+    trig_bit_VBF_DisplacedJet40_VTightID_DisplacedTrack_v = false;
+    trig_bit_VBF_DisplacedJet40_VVTightID_DisplacedTrack_v = false;
+    trig_bit_HT650_DisplacedDijet80_Inclusive_v = false;
+    trig_bit_HT750_DisplacedDijet80_Inclusive_v = false;
+    trig_bit_HT350_DisplacedDijet40_DisplacedTrack_v = false;
+    trig_bit_HT250_DisplacedDijet40_DisplacedTrack_v = false; //prescaled
+    trig_bit_HT350_DisplacedDijet80_Tight_DisplacedTrack_v = false;
+    //Mu + jets displaced
+    trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_v = false;
+    trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v = false;
+    trig_bit_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v = false;
+    trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_v = false;
+    trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v = false;
+    trig_bit_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_v = false;
+    trig_bit_Mu28NoFiltersNoVtx_CentralCaloJet40_v = false;
+    //HT and various jets
+    //  trig_bit_HT200_v//hardly prescaled
+    //  trig_bit_HT275_v//prescaled
+    //  trig_bit_HT325_v//prescaled
+    //  trig_bit_HT425_v//prescaled
+    //  trig_bit_HT575_v//prescaled
+    trig_bit_HT650_v = false;
+    trig_bit_PFHT800_v = false; //first unprescaled
+    trig_bit_PFHT550_4JetPt50_v = false;
+    trig_bit_PFHT650_4JetPt50_v = false;
+    trig_bit_PFHT750_4JetPt50_v = false;
+    trig_bit_PFHT800_4JetPt50_v = false;
+    trig_bit_PFHT850_4JetPt50_v = false;
+    trig_bit_PFJet15_NoCaloMatched_v = false;
+    trig_bit_PFJet25_NoCaloMatched_v = false;
+    trig_bit_DiPFJet15_NoCaloMatched_v = false;
+    trig_bit_DiPFJet25_NoCaloMatched_v = false;
+    trig_bit_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_v = false;
+    trig_bit_DiCentralPFJet430_v = false;
+    trig_bit_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_v = false;
+    trig_bit_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_v = false;
+    trig_bit_PFHT650_WideJetMJJ900DEtaJJ1p5_v = false;
+    trig_bit_PFHT650_WideJetMJJ950DEtaJJ1p5_v = false;
+    //Calo jets
+    trig_bit_CaloJet260_v = false;
+    trig_bit_CaloJet500_NoJetID_v = false;
+    trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v = false;
+    trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v = false;
+    trig_bit_HT250_CaloMET70_v = false;
+
     muon1_pt = 0.;
     muon1_pfIso04 = -1.;
     electron1_pt = 0.;
@@ -302,15 +570,85 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
             if (trigResults.product()->accept(i_Trig)) {
               TString TrigPath =trigName.triggerName(i_Trig);
 
-	      if ( TrigPath.Contains("HLT_") ) std::cout << TrigPath << std::endl;
-
+	      //if ( TrigPath.Contains("HLT_") ) std::cout << TrigPath << std::endl;
+              //if ( TrigPath.Contains("") )  = true;
+              if ( TrigPath.Contains("HLT_IsoMu24_v") ) trig_bit_IsoMu24_v = true;
+              if ( TrigPath.Contains("HLT_IsoTkMu24_v") ) trig_bit_IsoTkMu24_v = true;
+              if ( TrigPath.Contains("HLT_Mu50_v") ) trig_bit_Mu50_v = true;
+              if ( TrigPath.Contains("HLT_Mu55_v") ) trig_bit_Mu55_v = true;
+  //Single Ele
+              if ( TrigPath.Contains("HLT_Ele27_WPTight_Gsf_v") ) trig_bit_Ele27_WPTight_Gsf_v = true;
+  //Lepton + jets/HT
+              if ( TrigPath.Contains("HLT_Ele27_WPLoose_Gsf_WHbbBoost_v") ) trig_bit_Ele27_WPLoose_Gsf_WHbbBoost_v = true;
+              if ( TrigPath.Contains("HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v") ) trig_bit_Ele27_eta2p1_WPLoose_Gsf_HT200_v = true;
+              if ( TrigPath.Contains("HLT_Mu3_PFJet40_v") ) trig_bit_Mu3_PFJet40_v = true;
+              if ( TrigPath.Contains("HLT_Ele8_CaloIdM_TrackIdM_PFJet30_v") ) trig_bit_Ele8_CaloIdM_TrackIdM_PFJet30_v = true;
+              if ( TrigPath.Contains("HLT_Ele17_CaloIdM_TrackIdM_PFJet30_v") ) trig_bit_Ele17_CaloIdM_TrackIdM_PFJet30_v = true;
+              if ( TrigPath.Contains("HLT_Ele23_CaloIdM_TrackIdM_PFJet30_v") ) trig_bit_Ele23_CaloIdM_TrackIdM_PFJet30_v = true;
+              if ( TrigPath.Contains("HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v") ) trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v = true;
+              if ( TrigPath.Contains("HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v") ) trig_bit_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v = true;
+  //jet + met
+              if ( TrigPath.Contains("HLT_PFHT350_PFMET100_JetIdCleaned_v") ) trig_bit_PFHT350_PFMET100_JetIdCleaned_v = true;
+  //H to bb
+              if ( TrigPath.Contains("HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v") ) trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v = true;
+              if ( TrigPath.Contains("HLT_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_v") ) trig_bit_QuadPFJet_BTagCSV_p016_p11_VBF_Mqq240_v = true;
+              if ( TrigPath.Contains("HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v") ) trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v = true;
+              if ( TrigPath.Contains("HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v") ) trig_bit_QuadPFJet_BTagCSV_p016_VBF_Mqq500_v = true;
+              if ( TrigPath.Contains("HLT_QuadPFJet45_TripleBtagCSV_p087_v") ) trig_bit_QuadPFJet45_TripleBtagCSV_p087_v = true;
+              if ( TrigPath.Contains("HLT_QuadPFJet45_DoubleBtagCSV_p087_v") ) trig_bit_QuadPFJet45_DoubleBtagCSV_p087_v = true;
+              if ( TrigPath.Contains("HLT_QuadPFJet_VBF_v") ) trig_bit_QuadPFJet_VBF_v = true;//super prescaled
+              if ( TrigPath.Contains("HLT_L1_TripleJet_VBF_v") ) trig_bit_L1_TripleJet_VBF_v = true;//super prescaled
+  //pfjets
+              if ( TrigPath.Contains("HLT_PFJet450_v") ) trig_bit_PFJet450_v = true;
+              if ( TrigPath.Contains("HLT_PFJet500_v") ) trig_bit_PFJet500_v = true;
+              if ( TrigPath.Contains("HLT_DiPFJetAve40_v") ) trig_bit_DiPFJetAve40_v = true;//prescaled
+              if ( TrigPath.Contains("HLT_DiPFJetAve60_v") ) trig_bit_DiPFJetAve60_v = true;//prescaled
+              if ( TrigPath.Contains("HLT_DiPFJetAve80_v") ) trig_bit_DiPFJetAve80_v = true;//prescaled
+  //Displaced things:
+              if ( TrigPath.Contains("HLT_VBF_DisplacedJet40_DisplacedTrack_v") ) trig_bit_VBF_DisplacedJet40_DisplacedTrack_v = true;
+              if ( TrigPath.Contains("HLT_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_v") ) trig_bit_VBF_DisplacedJet40_DisplacedTrack_2TrackIP2DSig5_v = true;
+              if ( TrigPath.Contains("HLT_VBF_DisplacedJet40_TightID_DisplacedTrack_v") ) trig_bit_VBF_DisplacedJet40_TightID_DisplacedTrack_v = true;
+              if ( TrigPath.Contains("HLT_VBF_DisplacedJet40_VTightID_Hadronic_v") ) trig_bit_VBF_DisplacedJet40_VTightID_Hadronic_v = true;
+              if ( TrigPath.Contains("HLT_VBF_DisplacedJet40_VVTightID_Hadronic_v") ) trig_bit_VBF_DisplacedJet40_VVTightID_Hadronic_v = true;
+              if ( TrigPath.Contains("HLT_VBF_DisplacedJet40_VTightID_DisplacedTrack_v") ) trig_bit_VBF_DisplacedJet40_VTightID_DisplacedTrack_v = true;
+              if ( TrigPath.Contains("HLT_VBF_DisplacedJet40_VVTightID_DisplacedTrack_v") ) trig_bit_VBF_DisplacedJet40_VVTightID_DisplacedTrack_v = true;
+              if ( TrigPath.Contains("HLT_HT650_DisplacedDijet80_Inclusive_v") ) trig_bit_HT650_DisplacedDijet80_Inclusive_v = true;
+              if ( TrigPath.Contains("HLT_HT750_DisplacedDijet80_Inclusive_v") ) trig_bit_HT750_DisplacedDijet80_Inclusive_v = true;
+              if ( TrigPath.Contains("HLT_HT350_DisplacedDijet40_DisplacedTrack_v") ) trig_bit_HT350_DisplacedDijet40_DisplacedTrack_v = true;
+              if ( TrigPath.Contains("HLT_HT250_DisplacedDijet40_DisplacedTrack_v") ) trig_bit_HT250_DisplacedDijet40_DisplacedTrack_v = true;//prescaled = true;
+              if ( TrigPath.Contains("HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack_v") ) trig_bit_HT350_DisplacedDijet80_Tight_DisplacedTrack_v = true;
+  //Mu + jets displaced
+              if ( TrigPath.Contains("HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_v") ) trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Tight_v = true;
+              if ( TrigPath.Contains("HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v") ) trig_bit_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v = true;
+              if ( TrigPath.Contains("HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v") ) trig_bit_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v = true;
+              if ( TrigPath.Contains("HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_v") ) trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Tight_v = true;
+              if ( TrigPath.Contains("HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v") ) trig_bit_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v = true;
+              if ( TrigPath.Contains("HLT_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_v") ) trig_bit_Mu38NoFiltersNoVtx_DisplacedJet60_Loose_v = true;
+              if ( TrigPath.Contains("HLT_Mu28NoFiltersNoVtx_CentralCaloJet40_v") ) trig_bit_Mu28NoFiltersNoVtx_CentralCaloJet40_v = true;
+              if ( TrigPath.Contains("HLT_HT650_v") ) trig_bit_HT650_v = true;
+              if ( TrigPath.Contains("HLT_PFHT800_v") ) trig_bit_PFHT800_v = true;
+              if ( TrigPath.Contains("HLT_PFHT550_4JetPt50_v") ) trig_bit_PFHT550_4JetPt50_v = true;
+              if ( TrigPath.Contains("HLT_PFHT650_4JetPt50_v") ) trig_bit_PFHT650_4JetPt50_v = true;
+              if ( TrigPath.Contains("HLT_PFHT750_4JetPt50_v") ) trig_bit_PFHT750_4JetPt50_v = true;
+              if ( TrigPath.Contains("HLT_PFHT800_4JetPt50_v") ) trig_bit_PFHT800_4JetPt50_v = true;
+              if ( TrigPath.Contains("HLT_PFHT850_4JetPt50_v") ) trig_bit_PFHT850_4JetPt50_v = true;
+              if ( TrigPath.Contains("HLT_PFJet15_NoCaloMatched_v") ) trig_bit_PFJet15_NoCaloMatched_v = true;
+              if ( TrigPath.Contains("HLT_PFJet25_NoCaloMatched_v") ) trig_bit_PFJet25_NoCaloMatched_v = true;
+              if ( TrigPath.Contains("HLT_DiPFJet15_NoCaloMatched_v") ) trig_bit_DiPFJet15_NoCaloMatched_v = true;
+              if ( TrigPath.Contains("HLT_DiPFJet25_NoCaloMatched_v") ) trig_bit_DiPFJet25_NoCaloMatched_v = true;
+              if ( TrigPath.Contains("HLT_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_v") ) trig_bit_DiPFJet40_DEta3p5_MJJ600_PFMETNoMu140_v = true;
+              if ( TrigPath.Contains("HLT_DiCentralPFJet430_v") ) trig_bit_DiCentralPFJet430_v = true;
+              if ( TrigPath.Contains("HLT_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_v") ) trig_bit_DoubleJetsC100_DoubleBTagCSV_p026_DoublePFJetsC160_v = true;
+              if ( TrigPath.Contains("HLT_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_v") ) trig_bit_DoubleJetsC100_DoubleBTagCSV_p014_DoublePFJetsC100MaxDeta1p6_v = true;
+              if ( TrigPath.Contains("HLT_PFHT650_WideJetMJJ900DEtaJJ1p5_v") ) trig_bit_PFHT650_WideJetMJJ900DEtaJJ1p5_v = true;
+              if ( TrigPath.Contains("HLT_PFHT650_WideJetMJJ950DEtaJJ1p5_v") ) trig_bit_PFHT650_WideJetMJJ950DEtaJJ1p5_v = true;
+              //Calo Jets
+              if ( TrigPath.Contains("HLT_CaloJet260_v") ) trig_bit_CaloJet260_v = true;
+              if ( TrigPath.Contains("HLT_CaloJet500_NoJetID_v") ) trig_bit_CaloJet500_NoJetID_v = true;
+              if ( TrigPath.Contains("HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v") ) trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v = true;
+              if ( TrigPath.Contains("HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v") ) trig_bit_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v = true;
+              if ( TrigPath.Contains("HLT_HT250_CaloMET70_v") ) trig_bit_HT250_CaloMET70_v = true;
 	      //EXO-16-003: new physics with multiple displaced jets
-	      //HLT_HT500_DisplacedDijet40_Inclusive_v, HLT_HT400_DisplacedDijet40_Inclusive_v, HLT_HT350_DisplacedDijet40_DisplacedTrack_v, HLT_HT250_DisplacedDijet40_DisplacedTrack_v
-	      //EXO-16-041: new physics with displaced jets and met
-	      //HLT_IsoMu20_v, HLT_IsoTkMu20_v, HLT_PFHT350_PFMET100_JetIdCleaned_v
-
-	      //HIG searches
-
 
               //if ( TrigPath.Contains("HLT_PFMET110_PFMHT110_IDTight_v") ) trig_bit_pfmet110_pfmht110 = true;
               //if ( TrigPath.Contains("HLT_PFMET120_PFMHT120_IDTight_v") ) trig_bit_pfmet120_pfmht120 = true;
@@ -384,7 +722,6 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     LumiNumber = iEvent.luminosityBlock();
     RunNumber = iEvent.id().run();
 
-    std:cout<< EventNumber << std::endl;
 
     //Initialize met no mu
     float met_pt_nomu_x_L(0.), met_pt_nomu_y_L(0.), met_pt_nomu_x_T(0.), met_pt_nomu_y_T(0.);
