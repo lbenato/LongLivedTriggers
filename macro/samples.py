@@ -167,24 +167,69 @@ sample = {
         'kfactor' : 1.,
     },
 #WplusH_HToSSTobbbb_WToLNu
+    #ggH xsec: 48.58
+    #VBF xsec: 3.782
+    #WH xsec: 1.373
+    #ZH xsec: 0.8839
+    
     'WplusH_HToSSTobbbb_WToLNu_MH-125_MS-15_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
         'nevents' : 100000,
-        'xsec'    : 1.,
+        'xsec'    : 1.*10.86,
         'matcheff': 1.,
         'kfactor' : 1.,
     },
     'WplusH_HToSSTobbbb_WToLNu_MH-125_MS-40_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
         'nevents' : 100000,
-        'xsec'    : 1.,
+        'xsec'    : 1.*10.86,
         'matcheff': 1.,
         'kfactor' : 1.,
     },
     'WplusH_HToSSTobbbb_WToLNu_MH-125_MS-55_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
         'nevents' : 100000,
-        'xsec'    : 1.,
+        'xsec'    : 1.*10.86,
         'matcheff': 1.,
         'kfactor' : 1.,
     },
+#ZH_HToSSTobbbb_WToLNu
+    'ZH_HToSSTobbbb_ZToLL_MH-125_MS-15_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
+        'nevents' : 100000,
+        'xsec'    : 1.*3.3658,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'ZH_HToSSTobbbb_ZToLL_MH-125_MS-40_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
+        'nevents' : 100000,
+        'xsec'    : 1.*3.3658,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'ZH_HToSSTobbbb_ZToLL_MH-125_MS-55_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
+        'nevents' : 100000,
+        'xsec'    : 1.*3.3658,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+
+    #ggZH_HToSSTobbbb_WToLNu
+    'ggZH_HToSSTobbbb_ZToLL_MH-125_MS-15_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
+        'nevents' : 100000,
+        'xsec'    : 1.*3.3658,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'ggZH_HToSSTobbbb_ZToLL_MH-125_MS-40_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
+        'nevents' : 100000,
+        'xsec'    : 1.*3.3658,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'ggZH_HToSSTobbbb_ZToLL_MH-125_MS-55_ctauS-1000_TuneCUETP8M1_13TeV-powheg-pythia8' : {
+        'nevents' : 100000,
+        'xsec'    : 1.*3.3658,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+
     
 }
 

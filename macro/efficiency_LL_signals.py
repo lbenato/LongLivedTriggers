@@ -314,6 +314,7 @@ def efficiency_ctau(cutlist, labellist, setcut='',maxy=0.50):
     
     c1.Print("Efficiency/Efficiency_vs_ctau_" + signame + setcut+".png")
     c1.Print("Efficiency/Efficiency_vs_ctau_" + signame + setcut+".pdf")
+    c1.Print("Efficiency/Efficiency_vs_ctau_" + signame + setcut+".C")
     line_ctau = []
 
 
