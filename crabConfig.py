@@ -41,7 +41,7 @@ config.Data.unitsPerJob = 10
 #config.Data.outputDatasetTag = 'MET_trigger'
 #config.Data.publishDBS = 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter/'
 
-###Storage site in case you want to publish, this is not needed
+###Storage site in case you want to write on a T2, this is not needed
 config.Site.storageSite = 'T2_IT_Legnaro'
 
 config.Site.blacklist   = ['T2_FR_IPHC']
