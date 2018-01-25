@@ -1,3 +1,8 @@
+###Pre-requisites:
+###1. cmsenv in a CMSSW area
+###2. load CRAB: source /cvmfs/cms.cern.ch/crab3/crab.sh
+###3. set a proxy: voms-proxy-init --voms cms   (certificate password will be asked)
+
 from CRABClient.UserUtilities import config, getUsernameFromSiteDB
 import os
 config = config()
