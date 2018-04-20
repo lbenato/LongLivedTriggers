@@ -403,6 +403,99 @@ sample = {
         'matcheff': 1.,
         'kfactor' : 1.,
     },
+#VBF
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0p05_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0p1_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-5_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-10_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-25_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-50_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-100_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-500_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1000_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-2000_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-5000_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-10000_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+
+#VBF true higgs
+    'VBFHToBB_M-125_13TeV_powheg_pythia8' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
     
 }
 
@@ -444,7 +537,7 @@ samples = {
     'WplusH_M15_ctau0' : {
         'files' : ['WplusH_HToSSTobbbb_WToLNu_MH-125_MS-15_ctauS-0_TuneCUETP8M1_13TeV-powheg-pythia8'],
         'mass' : 15,
-        'ctau' : 0,
+        'ctau' : 0.,
     },
     'WplusH_M15_ctau0p05' : {
         'files' : ['WplusH_HToSSTobbbb_WToLNu_MH-125_MS-15_ctauS-0p05_TuneCUETP8M1_13TeV-powheg-pythia8'],
@@ -866,6 +959,156 @@ samples = {
         'files' : ['ggZH_HToSSTobbbb_ZToLL_MH-125_MS-55_ctauS-10000_TuneCUETP8M1_13TeV-powheg-pythia8'],
         'mass' : 55,
         'ctau' : 10000,
+    },
+#VBF
+    'VBFH_M40_ctau0' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 0.001,
+    },
+    'VBFH_M40_ctau0p05' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0p05_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 0.05,
+    },
+    'VBFH_M40_ctau0p1' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0p1_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 0.1,
+    },
+    'VBFH_M40_ctau1' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 1,
+    },
+    'VBFH_M40_ctau5' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-5_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 5,
+    },
+    'VBFH_M40_ctau10' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-10_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 10,
+    },
+    'VBFH_M40_ctau25' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-25_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 25,
+    },
+    'VBFH_M40_ctau50' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-50_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 50,
+    },
+    'VBFH_M40_ctau100' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-100_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 100,
+    },
+    'VBFH_M40_ctau500' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-500_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 500,
+    },
+    'VBFH_M40_ctau1000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1000_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 1000,
+    },
+    'VBFH_M40_ctau2000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-2000_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 2000,
+    },
+    'VBFH_M40_ctau5000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-5000_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 5000,
+    },
+    'VBFH_M40_ctau10000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-10000_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 10000,
+    },
+
+#m15
+    'VBFH_M15_ctau0' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-0_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 0.001,
+    },
+    'VBFH_M15_ctau0p05' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-0p05_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 0.05,
+    },
+    'VBFH_M15_ctau0p1' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-0p1_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 0.1,
+    },
+    'VBFH_M15_ctau1' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-1_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 1,
+    },
+    'VBFH_M15_ctau5' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-5_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 5,
+    },
+    'VBFH_M15_ctau10' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-10_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 10,
+    },
+    'VBFH_M15_ctau25' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-25_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 25,
+    },
+    'VBFH_M15_ctau50' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-50_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 50,
+    },
+    'VBFH_M15_ctau100' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-100_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 100,
+    },
+    'VBFH_M15_ctau500' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-500_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 500,
+    },
+    'VBFH_M15_ctau1000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-1000_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 1000,
+    },
+    'VBFH_M15_ctau2000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-2000_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 2000,
+    },
+    'VBFH_M15_ctau5000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-5000_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 5000,
+    },
+    'VBFH_M15_ctau10000' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-15_ctauS-10000_Summer16_MINIAOD'],
+        'mass' : 15,
+        'ctau' : 10000,
+    },
+
+#VBF true higgs
+    'VBF_Higgs' : {
+        'files' : ['VBFHToBB_M-125_13TeV_powheg_pythia8'],
+        'mass' : 40,
+        'ctau' : 0.005,
     },
 
     ### W' -> Whad Zinv

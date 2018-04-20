@@ -19,7 +19,8 @@ process.source = cms.Source("PoolSource",
         #'/store/data/Run2017A/SingleMuon/MINIAOD/PromptReco-v2/000/296/168/00000/084C505D-784C-E711-8140-02163E019DA4.root'
         #'/store/data/Run2017B/SingleMuon/MINIAOD/PromptReco-v2/000/298/678/00000/B48DBFCD-A466-E711-A86B-02163E01A456.root'
         #'/store/data/Run2017C/SingleMuon/MINIAOD/PromptReco-v2/000/300/087/00000/009C8147-0D77-E711-A1EA-02163E0145A7.root',
-        '/store/data/Run2017D/SingleMuon/MINIAOD/PromptReco-v1/000/302/031/00000/2411F4EE-2D8F-E711-B514-02163E0134D6.root',
+        #'/store/data/Run2017D/SingleMuon/MINIAOD/PromptReco-v1/000/302/031/00000/2411F4EE-2D8F-E711-B514-02163E0134D6.root',
+        '/store/user/lbenato/VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1_Summer16_AODSIM/VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1_TuneCUETP8M1_13TeV-powheg-pythia8_PRIVATE-MC/RunIISummer16-PU_standard_mixing-Moriond17_80X_mcRun2_2016_AODSIM/180131_222020/0000/aodsim_VBFH_SS_m40_ctau1_1.root'
     )
 )
 

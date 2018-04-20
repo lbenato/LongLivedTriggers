@@ -403,6 +403,26 @@ sample = {
         'matcheff': 1.,
         'kfactor' : 1.,
     },
+#VBF
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0p05_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+    'VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-10_Summer16_MINIAOD' : {
+        'nevents' : 100000,
+        'xsec'    : 1.,
+        'matcheff': 1.,
+        'kfactor' : 1.,
+    },
+
     
 }
 
@@ -866,6 +886,22 @@ samples = {
         'files' : ['ggZH_HToSSTobbbb_ZToLL_MH-125_MS-55_ctauS-10000_TuneCUETP8M1_13TeV-powheg-pythia8'],
         'mass' : 55,
         'ctau' : 10000,
+    },
+#VBF
+    'VBFH_M40_ctau0p05' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-0p05_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 0.05,
+    },
+    'VBFH_M40_ctau1' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-1_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 1,
+    },
+    'VBFH_M40_ctau10' : {
+        'files' : ['VBFH_HToSSTobbbb_MH-125_MS-40_ctauS-10_Summer16_MINIAOD'],
+        'mass' : 40,
+        'ctau' : 10,
     },
 
     ### W' -> Whad Zinv

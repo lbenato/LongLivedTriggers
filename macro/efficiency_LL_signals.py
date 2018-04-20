@@ -15,7 +15,7 @@ from ROOT import TLegend, TLatex, TText, TLine, TBox
 #from Analysis.ALPHA.Lselections import *
 #from Analysis.ALPHA.samples import sample, samples
 
-LOCAL = True
+LOCAL = False
 
 
 if LOCAL:
@@ -67,14 +67,14 @@ jobs        = []
 sign_mass = ['WplusH_M40_ctau0p05', 'WplusH_M55_ctau0p05']
 sign_ctau = ['WplusH_M55_ctau0','WplusH_M55_ctau0p05','WplusH_M55_ctau1','WplusH_M55_ctau10','WplusH_M55_ctau100','WplusH_M55_ctau1000','WplusH_M55_ctau10000']#
 
-sign_mass = ['WminusH_M15_ctau10000','WminusH_M40_ctau10000','WminusH_M55_ctau10000']
-sign_ctau = ['WminusH_M15_ctau0','WminusH_M15_ctau0p05','WminusH_M15_ctau1','WminusH_M15_ctau10','WminusH_M15_ctau100','WminusH_M15_ctau1000','WminusH_M15_ctau10000']# 
+#sign_mass = ['WminusH_M15_ctau10000','WminusH_M40_ctau10000','WminusH_M55_ctau10000']
+#sign_ctau = ['WminusH_M15_ctau0','WminusH_M15_ctau0p05','WminusH_M15_ctau1','WminusH_M15_ctau10','WminusH_M15_ctau100','WminusH_M15_ctau1000','WminusH_M15_ctau10000']# 
 #
-sign_mass = ['ZH_M15_ctau1000','ZH_M40_ctau1000','ZH_M55_ctau1000']
-sign_ctau = ['ZH_M15_ctau0','ZH_M15_ctau0p05','ZH_M15_ctau1','ZH_M15_ctau10','ZH_M15_ctau100','ZH_M15_ctau1000','ZH_M15_ctau10000']# 
+#sign_mass = ['ZH_M15_ctau1000','ZH_M40_ctau1000','ZH_M55_ctau1000']
+#sign_ctau = ['ZH_M15_ctau0','ZH_M15_ctau0p05','ZH_M15_ctau1','ZH_M15_ctau10','ZH_M15_ctau100','ZH_M15_ctau1000','ZH_M15_ctau10000']# 
 #
-sign_mass = ['ggZH_M15_ctau1000','ggZH_M40_ctau1000','ggZH_M55_ctau1000']
-sign_ctau = ['ggZH_M15_ctau0','ggZH_M15_ctau0p05','ggZH_M15_ctau10','ggZH_M15_ctau100','ggZH_M15_ctau1000','ggZH_M15_ctau10000']# 
+#sign_mass = ['ggZH_M15_ctau1000','ggZH_M40_ctau1000','ggZH_M55_ctau1000']
+#sign_ctau = ['ggZH_M15_ctau0','ggZH_M15_ctau0p05','ggZH_M15_ctau10','ggZH_M15_ctau100','ggZH_M15_ctau1000','ggZH_M15_ctau10000']# 
 
 #sign = ["XZZInv_M600", "XZZInv_M1000", "XZZInv_M2000", "XZZInv_M3000", "XZZInv_M4000"]
 colors = [4, 410, 856, 2, 634, 1, 881, 798, 602, 921, 801, 3, 5, 6, ]
@@ -120,7 +120,7 @@ def efficiency_mass(cutlist, labellist, setcut='',maxy=0.50):
             effs[s][j] = float(n)/(d*br)
     
     line = []
-    outFile = TFile("Efficiency/Eff_spline.root", "UPDATE")
+    outFile = TFile("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Eff_spline.root", "UPDATE")
     outFile.cd()
     #flagLP = True
     for j, c in enumerate(cutlist):
@@ -197,8 +197,8 @@ def efficiency_mass(cutlist, labellist, setcut='',maxy=0.50):
     elif 'ee' in labellist[0]: name = "Ele"
     else: name = "Met"
     
-    c1.Print("Efficiency/Efficiency_vs_mass_" + signame + setcut+".png")
-    c1.Print("Efficiency/Efficiency_vs_mass_" + signame + setcut+".pdf")
+    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_mass_" + signame + setcut+"_2.png")
+    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_mass_" + signame + setcut+"_2.pdf")
     #if not options.runBash: raw_input("Press Enter to continue...")
 
 
@@ -243,7 +243,7 @@ def efficiency_ctau(cutlist, labellist, setcut='',maxy=0.50):
             effs[s][j] = float(n)/(d*br)
     
     line_ctau = []
-    outFile = TFile("Efficiency/Eff_spline.root", "UPDATE")
+    outFile = TFile("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Eff_spline.root", "UPDATE")
     outFile.cd()
     #flagLP = True
     for j, c in enumerate(cutlist):
@@ -312,9 +312,9 @@ def efficiency_ctau(cutlist, labellist, setcut='',maxy=0.50):
     elif 'ee' in labellist[0]: name = "Ele"
     else: name = "Met"
     
-    c1.Print("Efficiency/Efficiency_vs_ctau_" + signame + setcut+".png")
-    c1.Print("Efficiency/Efficiency_vs_ctau_" + signame + setcut+".pdf")
-    c1.Print("Efficiency/Efficiency_vs_ctau_" + signame + setcut+".C")
+    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+"_2.png")
+    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+"_2.pdf")
+    #c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+".C")
     line_ctau = []
 
 

@@ -77,6 +77,8 @@ sign_ctau = ['WplusH_M55_ctau0','WplusH_M55_ctau0p05','WplusH_M55_ctau1','WplusH
 #sign_ctau = ['ggZH_M15_ctau0','ggZH_M15_ctau0p05','ggZH_M15_ctau10','ggZH_M15_ctau100','ggZH_M15_ctau1000','ggZH_M15_ctau10000']# 
 
 #sign = ["XZZInv_M600", "XZZInv_M1000", "XZZInv_M2000", "XZZInv_M3000", "XZZInv_M4000"]
+
+sign_ctau = ['VBFH_M40_ctau0p05','VBFH_M40_ctau10','VBFH_M40_ctau100']
 colors = [4, 410, 856, 2, 634, 1, 881, 798, 602, 921, 801, 3, 5, 6, ]
 ########## ######## ##########
 
@@ -196,13 +198,14 @@ def efficiency(cutlist, labellist, setcut='',maxy=0.50, var=""):
     c1.Close()
 
 
+########################################################
+#
+#  2D mass vs ctau
+#
+########################################################
 
+def eff_2D(cutlist):
 
-###################
-
-'''def efficiency_mass(cutlist, labellist, setcut='',maxy=0.50):
-
-    basecut = ""
     signame = ""
     ncuts = len(cutlist)
     
@@ -210,8 +213,9 @@ def efficiency(cutlist, labellist, setcut='',maxy=0.50, var=""):
     nevt = {}
     tree = {}
     effs = {}
+    sign = sign_ctau
 
-    for i, s in enumerate(sign_mass):
+    for i, s in enumerate(sign):
         if 'WplusH' in samples[s]['files'][0]:
             signame = "WplusH"
         elif 'WminusH' in samples[s]['files'][0]:
@@ -220,6 +224,8 @@ def efficiency(cutlist, labellist, setcut='',maxy=0.50, var=""):
             signame = "ZH"
         elif 'ggZH' in samples[s]['files'][0]:
             signame = "ggZH"
+        elif 'VBF' in samples[s]['files'][0]:
+            signame = "VBF"
         file[s] = TFile(NTUPLEDIR + samples[s]['files'][0] + ".root", "READ") # Read TFile
         ##nevt[s] = (file[s].Get('counter/c_nEvents')).GetBinContent(1)
         tree[s] = file[s].Get("trigger/tree") # Read TTree
@@ -230,457 +236,12 @@ def efficiency(cutlist, labellist, setcut='',maxy=0.50, var=""):
             n = tree[s].GetEntries(cutlist[j])
             d = nevt[s]#d = sample[samples[s]['files'][0]]['nevents']#tree[s].GetEntries(basecut)
             effs[s][j] = float(n)/(d*br)
-    
-    mg = TMultiGraph("mg","")
-    leg = TLegend(0.2, 0.6, 0.9, 0.9)
-    leg.SetBorderSize(0)
-    leg.SetFillStyle(0) #1001
-    leg.SetFillColor(0)
-    for j, c in enumerate(cutlist):
-        gr = TGraph(len(sign_mass))
-        for i, s in enumerate(sign_mass):
-            mass = int(samples[s]['mass'])
-            #print i, mass, effs[s][j]
-            gr.SetPoint(i, mass, effs[s][j])
-        gr.SetMarkerStyle(20)
-        gr.SetMarkerColor(colors[j])
-        gr.SetLineColor(colors[j])
-        gr.SetLineWidth(3)
-        gr.GetXaxis().SetTitleOffset(gr.GetXaxis().GetTitleOffset()*1.2)
-        gr.GetYaxis().SetTitleOffset(gr.GetYaxis().GetTitleOffset()*1.2)
-        gr.GetXaxis().SetTitle("m_{#pi} (GeV)")
-        gr.GetYaxis().SetTitle("Efficiency")
-        gr.GetYaxis().SetRangeUser(0., maxy)
-        mg.Add(gr)
-        leg.AddEntry(gr, labellist[i], "lp")
-        
-    if 'WplusH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'W^{+} H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg.SetHeader('W^{+} H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'WminusH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'W^{-} H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg.SetHeader('W^{-} H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'ZH' in samples[s]['files'][0] and not 'ggZH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'Z H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg.SetHeader('Z H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'ggZH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'gg Z H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg.SetHeader('gg Z H #rightarrow #pi #pi #rightarrow 4b', "")
 
-    c1 = TCanvas("c1", "Signals", 800, 600)
-    c1.cd()
-    c1.GetPad(0).SetTopMargin(0.06)
-    c1.GetPad(0).SetRightMargin(0.05)
-    c1.GetPad(0).SetTicks(1, 1)
+    print effs
 
-    mg.Draw("APL")
-    mg.GetXaxis().SetTitle("m_{#pi} (GeV)")
-    mg.GetYaxis().SetTitle("Efficiency")
-    mg.GetYaxis().SetRangeUser(0., maxy)
-    leg.Draw()
-    #drawCMS(-1, "Simulation")
-        
-    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_mass_" + signame + setcut+"_mg.png")
-    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_mass_" + signame + setcut+"_mg.pdf")
-    #if not options.runBash: raw_input("Press Enter to continue...")
+########################################################
 
-def efficiency_ctau_new(cutlist, labellist, setcut='',maxy=0.50):
-
-    basecut = ""
-    signame = ""
-    ncuts = len(cutlist)
-    
-    file = {}
-    nevt = {}
-    tree = {}
-    effs = {}
-
-    for i, s in enumerate(sign_ctau):
-        if 'WplusH' in samples[s]['files'][0]:
-            signame = "WplusH"
-        elif 'WminusH' in samples[s]['files'][0]:
-            signame = "WminusH"
-        elif 'ZH' in samples[s]['files'][0] and not 'ggZH' in samples[s]['files'][0]:
-            signame = "ZH"
-        elif 'ggZH' in samples[s]['files'][0]:
-            signame = "ggZH"
-        file[s] = TFile(NTUPLEDIR + samples[s]['files'][0] + ".root", "READ") # Read TFile
-        ##nevt[s] = (file[s].Get('counter/c_nEvents')).GetBinContent(1)
-        tree[s] = file[s].Get("trigger/tree") # Read TTree
-        nevt[s] = file[s].Get("trigger/tree").GetEntriesFast()
-        effs[s] = [0]*(ncuts+1)
-        for j, c in enumerate(cutlist):
-            br = 1.
-            n = tree[s].GetEntries(cutlist[j])
-            d = nevt[s]#d = sample[samples[s]['files'][0]]['nevents']#tree[s].GetEntries(basecut)
-            effs[s][j] = float(n)/(d*br)
-    
-    mg2 = TMultiGraph("mg2","")
-    leg2 = TLegend(0.2, 0.6, 0.9, 0.9)
-    leg2.SetBorderSize(0)
-    leg2.SetFillStyle(0) #1001
-    leg2.SetFillColor(0)
-    for j, c in enumerate(cutlist):
-        gr = TGraph(len(sign_ctau))
-        for i, s in enumerate(sign_ctau):
-            ctau = int(samples[s]['ctau'])
-            #print i, ctau, effs[s][j]
-            gr.SetPoint(i, ctau, effs[s][j])
-        gr.SetMarkerStyle(20)
-        gr.SetMarkerColor(colors[j])
-        gr.SetLineColor(colors[j])
-        gr.SetLineWidth(3)
-        gr.GetXaxis().SetTitleOffset(gr.GetXaxis().GetTitleOffset()*1.2)
-        gr.GetYaxis().SetTitleOffset(gr.GetYaxis().GetTitleOffset()*1.2)
-        gr.GetXaxis().SetTitle("m_{#pi} (GeV)")
-        gr.GetYaxis().SetTitle("Efficiency")
-        gr.GetYaxis().SetRangeUser(0., maxy)
-        mg2.Add(gr)
-        leg2.AddEntry(gr, labellist[i], "lp")
-        
-    if 'WplusH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'W^{+} H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg2.SetHeader('W^{+} H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'WminusH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'W^{-} H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg2.SetHeader('W^{-} H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'ZH' in samples[s]['files'][0] and not 'ggZH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'Z H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg2.SetHeader('Z H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'ggZH' in samples[s]['files'][0]:
-        #leg.AddEntry(gr, 'gg Z H #rightarrow #pi #pi #rightarrow 4b', "")
-        leg2.SetHeader('gg Z H #rightarrow #pi #pi #rightarrow 4b', "")
-
-    c1 = TCanvas("c1", "Signals", 800, 600)
-    c1.cd()
-    c1.GetPad(0).SetTopMargin(0.06)
-    c1.GetPad(0).SetRightMargin(0.05)
-    c1.GetPad(0).SetTicks(1, 1)
-
-    mg2.Draw("APL")
-    mg2.GetXaxis().SetTitle("m_{#pi} (GeV)")
-    mg2.GetYaxis().SetTitle("Efficiency")
-    mg2.GetYaxis().SetRangeUser(0., maxy)
-    leg2.Draw()
-    #drawCMS(-1, "Simulation")
-        
-    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+"_mg.png")
-    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+"_mg.pdf")
-    #if not options.runBash: raw_input("Press Enter to continue...")
-
-
-
-def efficiency_ctau(cutlist, labellist, setcut='',maxy=0.50):
-
-    basecut = ""
-    signame = ""
-    ncuts = len(cutlist)
-    
-    file = {}
-    nevt = {}
-    tree = {}
-    effs = {}
-
-    for i, s in enumerate(sign_ctau):
-        print "c_tau sample: ", s
-        if 'BulkGravToZZToZhadZinv' in samples[s]['files'][0]:
-            signame = "XZZInv"
-        elif 'WprimeToWZToWhadZinv' in samples[s]['files'][0]:
-            signame = "XWZInv"
-        elif 'WplusH' in samples[s]['files'][0]:
-            signame = "WplusH"
-        elif 'WminusH' in samples[s]['files'][0]:
-            signame = "WminusH"
-        elif 'ZH' in samples[s]['files'][0] and not 'ggZH' in samples[s]['files'][0]:
-            signame = "ZH"
-        elif 'ggZH' in samples[s]['files'][0]:
-            signame = "ggZH"
-        file[s] = TFile(NTUPLEDIR + samples[s]['files'][0] + ".root", "READ") # Read TFile
-        ##nevt[s] = (file[s].Get('counter/c_nEvents')).GetBinContent(1)
-        tree[s] = file[s].Get("trigger/tree") # Read TTree
-        nevt[s] = file[s].Get("trigger/tree").GetEntriesFast()
-        effs[s] = [0]*(ncuts+1)
-        for j, c in enumerate(cutlist):
-            #print cutlist[j]
-
-            br = 1.
-            n = tree[s].GetEntries(cutlist[j])
-            d = nevt[s]#d = sample[samples[s]['files'][0]]['nevents']#tree[s].GetEntries(basecut)
-            effs[s][j] = float(n)/(d*br)
-    
-    line_ctau = []
-    outFile = TFile("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Eff_spline.root", "UPDATE")
-    outFile.cd()
-    #flagLP = True
-    for j, c in enumerate(cutlist):
-        line_ctau.append( TGraph(ncuts) )
-        line_ctau[j].SetTitle(";c#tau_{#pi} (mm);Efficiency")
-        #print labellist[j]
-        for i, s in enumerate(sign_ctau):
-            #mass = int( ''.join(x for x in s if x.isdigit()) )
-            ctau = float(samples[s]['ctau'])
-            #print i, ctau, effs[s][j]
-            line_ctau[j].SetPoint(i, ctau, effs[s][j])
-        line_ctau[j].SetMarkerStyle(20)
-        line_ctau[j].SetMarkerColor(colors[j])
-        line_ctau[j].SetLineColor(colors[j])
-        line_ctau[j].SetLineWidth(3)
-        line_ctau[j].GetXaxis().SetTitleOffset(line_ctau[j].GetXaxis().GetTitleOffset()*1.2)
-        line_ctau[j].GetYaxis().SetTitleOffset(line_ctau[j].GetYaxis().GetTitleOffset()*1.2)
-        #line_ctau[j].Print()
-        
-    outFile.Close()
-    leg = TLegend(0.2, 0.6, 0.9, 0.9)
-    leg.SetBorderSize(0)
-    leg.SetFillStyle(0) #1001
-    leg.SetFillColor(0)
-    for i, c in enumerate(cutlist):
-        leg.AddEntry(line_ctau[i], labellist[i], "lp")
-
-    if 'BulkGravToZZToZlepZhad' in samples[s]['files'][0]:
-        leg.AddEntry(line_ctau[0], 'G_{Bulk} #rightarrow Z_{had}Z_{lep}', "")
-    elif 'BulkGravToZZToZlepZinv' in samples[s]['files'][0]:
-        leg.AddEntry(line_ctau[0], 'G_{Bulk} #rightarrow Z_{lep}Z_{inv}', "")
-    elif 'WprimeToWZToWhadZlep' in samples[s]['files'][0]:
-        leg.AddEntry(line_ctau[0], 'W\' #rightarrow W_{had}Z_{lep}', "")
-    elif 'BulkGravToZZToZhadZinv' in samples[s]['files'][0]:
-        #signame += "XZZInv"
-        leg.AddEntry(line_ctau[0], 'G_{Bulk} #rightarrow Z_{had}Z_{inv}', "")
-    elif 'WprimeToWZToWhadZinv' in samples[s]['files'][0]:
-        #signame += "XWZInv"
-        leg.AddEntry(line_ctau[0], 'W\' #rightarrow W_{had}Z_{inv}', "")
-    elif 'WplusH' in samples[s]['files'][0]:
-        #signame += "XWZInv"
-        leg.AddEntry(line_ctau[0], 'W^{+} H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'WminusH' in samples[s]['files'][0]:
-        leg.AddEntry(line_ctau[0], 'W^{-} H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'ZH' in samples[s]['files'][0] and not 'ggZH' in samples[s]['files'][0]:
-        leg.AddEntry(line_ctau[0], 'Z H #rightarrow #pi #pi #rightarrow 4b', "")
-    elif 'ggZH' in samples[s]['files'][0]:
-        leg.AddEntry(line_ctau[0], 'gg Z H #rightarrow #pi #pi #rightarrow 4b', "")
-    
-    c1 = TCanvas("c1", "Signals", 800, 600)
-    c1.cd()
-    c1.GetPad(0).SetTopMargin(0.06)
-    c1.GetPad(0).SetRightMargin(0.05)
-    c1.GetPad(0).SetTicks(1, 1)
-    line_ctau[0].GetXaxis().SetTitle("c#tau_{#pi} (mm)")
-    line_ctau[0].GetYaxis().SetTitle("Efficiency")
-    line_ctau[0].GetYaxis().SetRangeUser(0., maxy)
-    
-    for i, s in enumerate(cutlist):
-        line_ctau[i].Draw("APL" if i==0 else "SAME, PL")
-    leg.Draw()
-    #drawCMS(-1, "Simulation")
-    
-    name = ""
-    if '#mu#mu' in labellist[0]: name = "Muon"
-    elif 'ee' in labellist[0]: name = "Ele"
-    else: name = "Met"
-    
-    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+"_mg.png")
-    c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+"_mg.pdf")
-    #c1.Print("$CMSSW_BASE/src/LongLived/LongLivedTriggers/macro/Efficiency/Efficiency_vs_ctau_" + signame + setcut+".C")
-    line_ctau = []
 '''
-
-
-
-
-'''efficiency_mass([
-    'HLT_CaloJet260_v', 
-    'HLT_CaloJet500_NoJetID_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v',
-    'HLT_HT250_CaloMET70_v',
-    'HLT_PFJet450_v || HLT_HT650_v',
-#    'HLT_PFJet15_NoCaloMatched_v',#weird, check
-    ],
-    [
-    'HLT_CaloJet260_v', 
-    'HLT_CaloJet500_NoJetID_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v',
-    'HLT_HT250_CaloMET70_v',
-    'HLT_PFJet450_v || HLT_HT650_v',
-#    'HLT_PFJet15_NoCaloMatched_v',#weird, check
-    ],
-"calo"
-)
-
-
-efficiency_mass([
-#    'isMC',
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v',
-    'HLT_Ele27_WPTight_Gsf_v',
-    #'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    'HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v',
-    'HLT_Ele8_CaloIdM_TrackIdM_PFJet30_v',
-    'HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v',
-    'HLT_Mu3_PFJet40_v',
-],
-    [
-#    'is MC',
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v',
-    'HLT_Ele27_WPTight_Gsf_v',
-    #'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    'HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v',
-    'HLT Ele8_CaloIdM_TrackIdM_PFJet30_v',
-    'HLT Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v',
-    'HLT_Mu3_PFJet40_v',
-    ],
- "lept"
-)
-
-efficiency_mass([
-    'HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack_v',
-    'HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v',
-    'HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v',
-    'HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v',
-    'HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v',
-    'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-],
-    [
-    'HLT HT350_DisplacedDijet80_Tight_DisplacedTrack_v',
-    'HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v',
-    'HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v',
-    'HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v',
-    'HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v',
-    'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    ],
-"displ"
-)
-
-efficiency_mass([
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v || HLT_Ele27_WPTight_Gsf_v',
-    'HLT_Ele17_CaloIdM_TrackIdM_PFJet30_v || HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v || HLT_Mu3_PFJet40_v || HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v',
-    'HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v || HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v || HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v || HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    'HLT_CaloJet260_v || HLT_CaloJet500_NoJetID_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v || HLT_HT250_CaloMET70_v || HLT_PFJet450_v || HLT_HT650_v',
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v || HLT_Ele27_WPTight_Gsf_v || HLT_Ele17_CaloIdM_TrackIdM_PFJet30_v || HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v || HLT_Mu3_PFJet40_v || HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v || HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v || HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v || HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v || HLT_Ele27_WPLoose_Gsf_WHbbBoost_v || HLT_CaloJet260_v || HLT_CaloJet500_NoJetID_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v || HLT_HT250_CaloMET70_v || HLT_PFJet450_v || HLT_HT650_v',
-],
-    [
-#    'is MC',
-    'SingleEle || Single Mu',
-    'Ele + jet (HT) || Mu + jet',
-    'Displacement + boost WHbb',
-    'Calo + PF/HT',
-    'OR',
-    ],
-    "OR",
-    0.8
-)
-
-#raw_input('pausa')
-
-    
-
-efficiency_ctau([
-    'HLT_CaloJet260_v', 
-    'HLT_CaloJet500_NoJetID_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v',
-    'HLT_HT250_CaloMET70_v',
-    'HLT_PFJet450_v || HLT_HT650_v',
-#    'HLT_PFJet15_NoCaloMatched_v',#weird, check
-    ],
-    [
-    'HLT_CaloJet260_v', 
-    'HLT_CaloJet500_NoJetID_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v',
-    'HLT_HT250_CaloMET70_v',
-    'HLT_PFJet450_v || HLT_HT650_v',
-#    'HLT_PFJet15_NoCaloMatched_v',#weird, check
-    ],
-"calo"
-)
-
-efficiency_ctau([
-#    'isMC',
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v',
-    'HLT_Ele27_WPTight_Gsf_v',
-    #'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    'HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v',
-    'HLT_Ele8_CaloIdM_TrackIdM_PFJet30_v',
-    'HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v',
-    'HLT_Mu3_PFJet40_v',
-],
-    [
-#    'is MC',
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v',
-    'HLT_Ele27_WPTight_Gsf_v',
-    #'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    'HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v',
-    'HLT Ele8_CaloIdM_TrackIdM_PFJet30_v',
-    'HLT Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v',
-    'HLT_Mu3_PFJet40_v',
-    ],
- "lept"
-)
-
-efficiency_ctau([
-    'HLT_HT350_DisplacedDijet80_Tight_DisplacedTrack_v',
-    'HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v',
-    'HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v',
-    'HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v',
-    'HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v',
-    'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-],
-    [
-    'HLT HT350_DisplacedDijet80_Tight_DisplacedTrack_v',
-    'HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v',
-    'HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v',
-    'HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v',
-    'HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v',
-    'HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    ],
-"displ"
-)
-
-efficiency_ctau([
-#    'isMC',
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v || HLT_Ele27_WPTight_Gsf_v',
-    'HLT_Ele17_CaloIdM_TrackIdM_PFJet30_v || HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v || HLT_Mu3_PFJet40_v || HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v',
-    'HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v || HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v || HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v || HLT_Ele27_WPLoose_Gsf_WHbbBoost_v',
-    'HLT_CaloJet260_v || HLT_CaloJet500_NoJetID_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v || HLT_HT250_CaloMET70_v || HLT_PFJet450_v || HLT_HT650_v',
-    'HLT_IsoMu24_v || HLT_IsoTkMu24_v || HLT_Ele27_WPTight_Gsf_v || HLT_Ele17_CaloIdM_TrackIdM_PFJet30_v || HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet140_v || HLT_Mu3_PFJet40_v || HLT_Ele27_eta2p1_WPLoose_Gsf_HT200_v || HLT_Mu28NoFiltersNoVtx_DisplacedJet40_Loose_v || HLT_Mu33NoFiltersNoVtxDisplaced_DisplacedJet50_Loose_v || HLT_Mu38NoFiltersNoVtxDisplaced_DisplacedJet60_Loose_v || HLT_Ele27_WPLoose_Gsf_WHbbBoost_v || HLT_CaloJet260_v || HLT_CaloJet500_NoJetID_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v || HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v || HLT_HT250_CaloMET70_v || HLT_PFJet450_v || HLT_HT650_v',
-],
-    [
-#    'is MC',
-    'SingleEle || Single Mu',
-    'Ele + jet (HT) || Mu + jet',
-    'Displacement + boost WHbb',
-    'Calo + PF/HT',
-    'OR',
-    ],
-    "OR",
-    1.0            
-)'''
-
-
-'''efficiency([
-    'HLT_CaloJet260_v', 
-    'HLT_CaloJet500_NoJetID_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v',
-    'HLT_HT250_CaloMET70_v',
-    'HLT_PFJet450_v || HLT_HT650_v',
-#    'HLT_PFJet15_NoCaloMatched_v',#weird, check
-    ],
-    [
-    'HLT_CaloJet260_v', 
-    'HLT_CaloJet500_NoJetID_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_BTagCSV_p067_v',
-    'HLT_CaloMHTNoPU90_PFMET90_PFMHT90_IDTight_v',
-    'HLT_HT250_CaloMET70_v',
-    'HLT_PFJet450_v || HLT_HT650_v',
-#    'HLT_PFJet15_NoCaloMatched_v',#weird, check
-    ],
-"lept",
-0.5,
-"ctau"
-)'''
-
 for a in ['mass','ctau']:
 
     efficiency([
@@ -774,3 +335,6 @@ for a in ['mass','ctau']:
                a
                )
 
+'''
+
+eff_2D(['HLT_QuadPFJet_BTagCSV_p016_VBF_Mqq460_v'])

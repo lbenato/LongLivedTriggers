@@ -767,6 +767,7 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
 	//FatJetVect.push_back(f);
     }
 
+    */
     //Loop on AK4 jets
     edm::Handle<pat::JetCollection> jets;
     iEvent.getByToken( jetToken, jets );
@@ -775,13 +776,18 @@ LongLivedTrigAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     for(std::vector<pat::Jet>::const_iterator it=jets->begin(); it!=jets->end(); it++) {
         pat::Jet j=*it;
 	if ( !isLooseJet(j) ) continue;
-        if ( j.pt() < 30 ) continue;//this causes a jump at ~30? investigate!
-        if ( fabs( j.eta() ) > 2.5 ) continue;
+        if ( j.pt() < 15 ) continue;//this causes a jump at ~30? investigate!
+        if ( fabs( j.eta() ) > 5.2 ) continue;
         nLooseJets++;
-	jet1_pt = j.pt();
+	if ( isTightJet(j) ) 
+	  {
+	    nTightJets++;
+	  }
+	//jet1_pt = j.pt();
 	JetVect.push_back(j);
     }
 
+/*
     float m_ht_x(0.), m_ht_y(0.), m_ht_nomu_x_L(0.), m_ht_nomu_y_L(0.), m_ht_nomu_x_T(0.), m_ht_nomu_y_T(0.);
     
     for(unsigned int a=0; a<JetVect.size(); a++){
